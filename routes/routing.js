@@ -26,7 +26,7 @@ routing.route("/categorylist").get(decodeToken, function (req, res) {
   .toArray(function (err, result) {
     if (err) throw err;
     // const resultArr = result.map(el => {return el.categoryName})
-    console.log("query result", result);
+    // console.log("query result", result);
     res.json(result)
   })
 })
@@ -72,7 +72,7 @@ routing.route("/bookmarks/:searchItem").get(decodeToken, function (req, res) {
     .project(projection)
     .toArray(function (err, result) {
       if (err) throw err;
-      console.log("query result", result);
+      // console.log("query result", result);
       res.json(result) 
 
   })
@@ -98,7 +98,7 @@ routing.route("/categorylist/add").post(decodeToken, function (req, res) {
   //   if (err) throw err;
   //   res.json(response);
   // })
-  console.log("new category", req.body);
+  // console.log("new category", req.body);
 });
 
 // POST bookmark
@@ -122,7 +122,7 @@ routing.route("/addbookmark").post(decodeToken, function (req, res) {
   .insertOne(newObj, function (err, response) {
     if (err) throw err;
     res.json(response)
-    console.log(`sucessfully added bookmark`, req.body);
+    // console.log(`sucessfully added bookmark`, req.body);
   })
 })
 
@@ -157,14 +157,14 @@ routing.route("/remove-category/:categoryName").delete(decodeToken, function (re
   db_connect
   .collection("Category_List")
   .deleteOne(query, function (req, response) {
-    console.log("sucessfully deleted from Category_List", query);
+    // console.log("sucessfully deleted from Category_List", query);
   });
 
   db_connect
   .collection("Bookmark_List")
   .deleteMany(query, function (req, response) {
 
-    console.log("sucessfully deleted from Bookmark_List", query);
+    // console.log("sucessfully deleted from Bookmark_List", query);
     res.json(response)
   });
 });
@@ -177,8 +177,8 @@ routing.route("/remove-bookmark/:bookmarkId").delete(decodeToken, function (req,
   db_connect
   .collection("Bookmark_List")
   .deleteOne(query, function (req, response) {
-    console.log(query);
-    console.log(response);
+    // console.log(query);
+    // console.log(response);
     res.json(response)
   })
 })
@@ -200,7 +200,7 @@ routing.route('/log_callback').get(async (req, res) => {
     .then((res) => res.data) // returns expected response JSON body for tokens, scope, etc...
 
     const reddToken= redditResToken.access_token
-    console.log("reddkey", reddToken);
+    // console.log("reddkey", reddToken);
 
     return res
     .cookie("access_token", reddToken, {
