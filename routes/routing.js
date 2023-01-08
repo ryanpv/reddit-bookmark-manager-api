@@ -188,7 +188,7 @@ routing.route("/remove-bookmark/:bookmarkId").delete(decodeToken, function (req,
 routing.route('/log_callback').get(async (req, res) => {
   const code = req.query.code;
   const buf = Buffer.from(`${redditClientId}:${redditSecretId}`).toString('base64')
-  const body = `grant_type=authorization_code&code=${code}&redirect_uri=https://saveredd-api.onrender.com/log_callback`
+  const body = `grant_type=authorization_code&code=${code}&redirect_uri=https://saveredd.onrender.com/log_callback`
   const headers = {
       'Authorization': `Basic ${buf}`,
       'Content-Type': 'application/x-www-form-urlencoded',
