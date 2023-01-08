@@ -1,0 +1,7 @@
+config.env
+node_modules
+package-lock.json
+serviceAccount.json
+notes.txt
+ToDoList.txt
+UserProfile.txt
