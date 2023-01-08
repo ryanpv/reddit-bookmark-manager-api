@@ -26,7 +26,7 @@ app.use(require("./routes/routing.js"));
 
 // const middleware = require("./middleware/index");
 
-app.listen(80, () => {
+app.listen(port, () => {
   dbo.connectToServer(function (err) {
     if (err) console.log(err);
   })
