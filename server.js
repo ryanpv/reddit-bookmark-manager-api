@@ -7,7 +7,7 @@ const dbo = require("./db/conn.js");
 const cookieParser = require("cookie-parser");
 
 app.use(cors({ 
-  origin: 'http://localhost:3000',
+  origin: 'https://saveredd.onrender.com',
   credentials: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE' }));
 
@@ -26,7 +26,7 @@ app.use(require("./routes/routing.js"));
 
 // const middleware = require("./middleware/index");
 
-app.listen(port, () => {
+app.listen(80, () => {
   dbo.connectToServer(function (err) {
     if (err) console.log(err);
   })
