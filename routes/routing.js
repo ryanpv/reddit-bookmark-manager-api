@@ -63,7 +63,7 @@ routing.route("/querycategory/:categoryId/:pageNum").get(decodeToken, async func
 // GET ALL saved bookmarks
 routing.route("/bookmarks/:searchItem").get(decodeToken, function (req, res) {
   let db_connect = dbo.getDb("Category_List")
-  let query = { '$text': { '$search' : `\"${req.params.searchItem}\"` } } // THIS QUERY METHOD IS NON-CASE SENSITIVE. split params for "and" inclusion?
+  let query = { '$text': { '$search' : `\"${req.params.searchItem}\"` }, userId: req.user.uid } // THIS QUERY METHOD IS NON-CASE SENSITIVE. split params for "and" inclusion?
   const projection = { categoryName: 1, pathName: 1, title: 1, link_title: 1 }
   // console.log(query);
   db_connect
